@@ -4,8 +4,13 @@ def word_info word, letters
   underscores = "_ " * n
 
   letters.each do |letter|
-    i = word.index(letter)
-    underscores[i * 2] = letter.upcase
+    i = -1
+    
+    loop do
+      i = word.index(letter, i + 1)
+      break if i.nil?
+      underscores[i * 2] = letter.upcase
+    end
   end
 
   underscores

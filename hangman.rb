@@ -1,14 +1,25 @@
 require_relative "word_info"
 
-hidden_word = "hello"
+hidden_word = "rubocop"
 found_letters = []
 wrong_letters = []
+errors_counter = 0
 
 loop do
+  if errors_counter > 6
+    puts "You lost! The hidden word was #{hidden_word}"
+    break
+  end
+
   info = word_info(hidden_word, found_letters)
 
   puts info
   puts
+
+  unless info.include?('_')
+    puts "You won!"
+    break
+  end
 
   print "Wrong letters: "
   puts wrong_letters.sort.uniq.join(" ")
@@ -36,5 +47,6 @@ loop do
   else
     puts "That letter is not in the word."
     wrong_letters << answer.upcase
+    errors_counter += 1
   end
 end
