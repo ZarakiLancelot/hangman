@@ -1,4 +1,5 @@
 require_relative "word_info"
+require_relative "draw_gallows"
 
 hidden_word = "rubocop"
 found_letters = []
@@ -6,6 +7,8 @@ wrong_letters = []
 errors_counter = 0
 
 loop do
+  draw_gallows errors_counter
+  
   if errors_counter > 6
     puts "You lost! The hidden word was #{hidden_word}"
     break
