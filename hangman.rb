@@ -1,7 +1,10 @@
 require_relative "word_info"
 require_relative "draw_gallows"
+require_relative "dictionary_loader"
 
-hidden_word = "palladium"
+words = load_dictionary('dictionary_en.txt', 3)
+
+hidden_word = words.sample
 found_letters = []
 wrong_letters = []
 errors_counter = 0
