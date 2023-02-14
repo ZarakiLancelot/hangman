@@ -1,7 +1,7 @@
 require_relative "word_info"
 require_relative "draw_gallows"
 
-hidden_word = "rubocop"
+hidden_word = "palladium"
 found_letters = []
 wrong_letters = []
 errors_counter = 0
